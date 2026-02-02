@@ -1,30 +1,30 @@
 package controllers
 
 import (
+	"LogiGO/cmd/database"
 	"LogiGO/cmd/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-func GetOrder(c *gin.Context) {
+func GetPayments(c *gin.Context) {
 
-	var orders []models.Pedido
-	database.db.Find(&orders)
-	c.JSON(http.StatusOK, orders)
-
+	var payments []models.Payment
+	database.DB.Find(&payments)
+	c.JSON(http.StatusOK, payments)
 }
 
-func PostOrder(c *gin.Context) {
-	var order models.Pedido
+func PostPayment(c *gin.Context) {
+	var order models.Payment
 	if err := c.ShouldBindJSON(&order); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	if err := models.ValidateOrder(&order); err != nil {
+	if err := models.ValidatePayment(&order); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	database.db.Create(&order)
+	database.DB.Create(&order)
 	c.JSON(http.StatusCreated, order)
 }

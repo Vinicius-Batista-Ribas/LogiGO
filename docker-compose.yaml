@@ -1,19 +1,6 @@
 version: "3.9"
 
 services:
-  backend:
-    build: ./cmd
-    container_name: go-backend
-    restart: always
-    ports:
-      - "8080:8080"
-    depends_on:
-     - postgres
-    env_file:
-     - ./cmd/.env
-    networks:
-      - backend-network
-      
   postgres:
     image: postgres:16
     container_name: postgres-db
@@ -22,6 +9,8 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: root
+    ports:
+      - "5432:5432" # útil para pgAdmin/local
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -32,7 +21,7 @@ services:
     container_name: pgadmin
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: Go@inatel.com
+      PGADMIN_DEFAULT_EMAIL: go@inatel.com
       PGADMIN_DEFAULT_PASSWORD: 123456
     ports:
       - "54321:80"
@@ -47,7 +36,3 @@ volumes:
 networks:
   backend-network:
     driver: bridge
-
-
-
- 
