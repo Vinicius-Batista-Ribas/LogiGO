@@ -80,7 +80,7 @@ Esse modelo será expandido conforme o projeto evolui.
 
 * [x] Fase 0 – API básica em Go
 * [x] Fase 1 – Persistência com PostgreSQL
-* [ ] Fase 2 – Organização em camadas
+* [x] Fase 2 – Organização em camadas
 * [ ] Fase 3 – Cache com Redis
 * [ ] Fase 4 – Mensageria
 * [ ] Fase 5 – Microsserviços
@@ -94,7 +94,7 @@ Esse modelo será expandido conforme o projeto evolui.
 ## ▶️ Como executar o projeto
 
 ```bash
-go run cmd/api/main.go
+go run cmd/main.go
 ```
 
 ---

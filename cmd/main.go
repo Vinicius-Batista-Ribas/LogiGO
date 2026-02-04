@@ -2,6 +2,7 @@ package main
 
 import (
 	"LogiGO/cmd/database"
+	"LogiGO/cmd/models"
 	"LogiGO/cmd/routes"
 	"log"
 
@@ -15,6 +16,7 @@ func main() {
 		log.Fatal("Erro ao carregar .env")
 	}
 
+	models.InitValidators()
 	database.ConnectDB()
 	routes.HandlerRequest()
 }
