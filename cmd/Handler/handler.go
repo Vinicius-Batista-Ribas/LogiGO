@@ -1,7 +1,7 @@
 package handler
 
 import (
-	controllers "LogiGO/cmd/Controllers"
+	controllers "LogiGO/cmd/controllers"
 	dto "LogiGO/cmd/dto"
 	"LogiGO/cmd/models"
 	"net/http"

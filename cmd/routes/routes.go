@@ -1,9 +1,9 @@
 package routes
 
 import (
-	controllers "LogiGO/cmd/Controllers"
-	handler "LogiGO/cmd/Handler"
+	controllers "LogiGO/cmd/controllers"
 	"LogiGO/cmd/database"
+	handler "LogiGO/cmd/handler"
 	"LogiGO/cmd/repository"
 
 	"github.com/gin-gonic/gin"
